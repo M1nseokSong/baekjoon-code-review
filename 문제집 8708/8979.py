@@ -10,10 +10,8 @@ for _ in range(n):
     medal[t-1] = [t, g*gold + s*silver + b*bronze]
 medal.sort(reverse=True, key=lambda x: x[1])
 index = [medal[i][0] for i in range(n)].index(k)
-for i in range(n):
-    if medal[i][1] == medal[index][1]:
-        print(i+1)
-        break
+result = [medal[i][1] for i in range(n)].index(medal[index][1])
+print(result+1)
 #--------------------------------------------------------#
 # N, K = map(int, input().split())
 
