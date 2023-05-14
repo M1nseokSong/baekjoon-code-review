@@ -6,13 +6,12 @@ switch_count = int(input()) # 스위치 개수 100 이하
 switch_first = [2] + list(map(int, input().split())) # 1 on 0 off
 student_count = int(input()) # 학생 수 100 이하
 student = [list(map(int ,input().split())) for _ in range(student_count)]
+def change(n):
+    return 1 if n == 0 else 0
 for _ in range(student_count):
     if student[_][0] == 1 : # 남자
         for i in range(student[_][1], switch_count+1, student[_][1]):
-            if switch_first[i] == 0:
-                switch_first[i] = 1
-            else:
-                switch_first[i] = 0
+            switch_first[i] = change(switch_first[i])
     else: # 여자
         left_right = 0 # 좌우 몇칸 갔는지 담는 변수
         while(True):
@@ -24,10 +23,7 @@ for _ in range(student_count):
                 break
         left_right -= 1
         for i in range(student[_][1]-left_right, student[_][1]+left_right+1):
-            if switch_first[i] == 0:
-                switch_first[i] = 1
-            else:
-                switch_first[i] = 0
+            switch_first[i] = change(switch_first[i])
 
 for i in range(1, switch_count+1):
     if i%20==0:
