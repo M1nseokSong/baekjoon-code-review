@@ -1,0 +1,19 @@
+# 실버4
+# 어두운 굴다리
+import sys
+input = sys.stdin.readline
+n = int(input())
+m = int(input())
+x = list(map(int, input().split()))
+interval = []
+for i in range(m+1):
+    if i == 0:
+        interval.append(x[0])
+    elif i == m:
+        interval.append(n - x[-1])
+    else:
+        if (x[i] - x[i-1])%2==0:
+            interval.append((x[i] - x[i-1])//2)
+        else:
+            interval.append((x[i] - x[i-1])//2+1)
+print(max(interval))
