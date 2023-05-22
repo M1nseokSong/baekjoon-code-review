@@ -14,7 +14,7 @@ def yesan(n, money, max_money):
     if sum(money[:center]) + money[center] * (n-center) > max_money:
         ud = -1
     value = money[center]
-    # print(value)
+    
     while(True):
         mid = 0
         value += ud
@@ -23,17 +23,8 @@ def yesan(n, money, max_money):
                 mid = i
                 break
         if sum(money[:mid]) + value * (n-mid) > max_money:
-            if ud == 1:
-                return value -1
-            elif ud == -1:
-                continue
-        elif sum(money[:mid]) + value * (n-mid) <= max_money:
-            if ud == 1:
-                continue
-            else:
-                return value
-            
-
-
-
+            if ud == 1: return value -1
+        else:
+            if ud == -1: return value
+        
 print(yesan(n, money, max_money)) 
