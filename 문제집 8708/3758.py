@@ -14,8 +14,7 @@ for _ in range(T):
         if s > team[i-1][1][j-1]:
             team[i-1][1][j-1] = s
         team[i-1][2] += 1
-        if q > team[i-1][3]:
-            team[i-1][3] = q
+        team[i-1][3] = q
     for i in range(n):
         team[i][1] = sum(team[i][1])
     team.sort(reverse=True, key=lambda x : (x[1], -x[2], -x[3]))
