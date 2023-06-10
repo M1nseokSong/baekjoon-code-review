@@ -1,0 +1,13 @@
+from collections import deque
+def solution(numbers, target):
+    answer = 0
+    queue = deque([0])
+    for i in numbers:
+        length = len(queue)
+        for q in range(length):
+            tmp = queue.popleft()
+            queue.append(tmp + i)
+            queue.append(tmp + (-i))
+    return queue.count(target)
+            
+    
